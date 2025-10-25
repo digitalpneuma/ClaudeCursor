@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { Button, Card } from '@/components';
+import { useState } from 'react';
+import { Button, Hero, Services } from '@/components';
 
 interface HomeProps {
   isDark: boolean;
@@ -8,6 +9,8 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = ({ isDark, toggleDarkMode }) => {
+  const [showAuditForm, setShowAuditForm] = useState(false);
+
   return (
     <>
       <Head>
@@ -24,72 +27,74 @@ const Home: NextPage<HomeProps> = ({ isDark, toggleDarkMode }) => {
             <h1 className="text-2xl font-bold font-display bg-gradient-cosmic bg-clip-text text-transparent">
               AI Vibe Co.
             </h1>
-            <Button
-              variant="secondary"
-              size="sm"
-              onClick={toggleDarkMode}
-              aria-label="Toggle dark mode"
-            >
-              {isDark ? '☀️ Light' : '🌙 Dark'}
-            </Button>
+            <div className="flex items-center gap-4">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setShowAuditForm(!showAuditForm)}
+              >
+                Book Audit
+              </Button>
+              <Button
+                variant="secondary"
+                size="sm"
+                onClick={toggleDarkMode}
+                aria-label="Toggle dark mode"
+              >
+                {isDark ? '☀️' : '🌙'}
+              </Button>
+            </div>
           </nav>
         </header>
 
         {/* Hero Section */}
-        <section className="min-h-screen flex items-center justify-center pt-20 px-4">
-          <div className="text-center max-w-2xl">
-            <h2 className="text-5xl md:text-7xl font-bold font-display mb-6 animate-fade-in">
-              <span className="bg-gradient-cosmic bg-clip-text text-transparent">
-                Unlock AI's Vibe
-              </span>
-              <br />
-              <span>for Your Business</span>
-            </h2>
-            <p className="text-xl md:text-2xl text-cosmic-night/70 dark:text-cosmic-light/70 mb-8 animate-slide-up">
-              AI integration and app development consulting tailored for small and medium-sized businesses.
-            </p>
-            <Button variant="success" size="lg">
-              GET YOUR AI AUDIT
-            </Button>
-          </div>
-        </section>
+        <Hero onAuditClick={() => setShowAuditForm(true)} />
 
         {/* Services Section */}
-        <section className="py-20 px-4 bg-cosmic-light dark:bg-cosmic-night">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl font-bold font-display text-center mb-16">Our Services</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  title: 'Video & Image Prompt Engineering',
-                  description: 'Master Midjourney and Stable Diffusion to generate stunning visuals for your brand.',
-                  icon: '🎨'
-                },
-                {
-                  title: 'Vibe Coding',
-                  description: 'Junior-level app development using no-code and low-code platforms.',
-                  icon: '⚡'
-                },
-                {
-                  title: 'AI Integration Consulting',
-                  description: 'Strategic business audits and custom AI integration solutions.',
-                  icon: '🤖'
-                }
-              ].map((service, idx) => (
-                <Card key={idx} variant="bordered" className="hover:shadow-glow-cyan cursor-pointer">
-                  <div className="text-4xl mb-4">{service.icon}</div>
-                  <h3 className="text-xl font-bold font-display mb-3">{service.title}</h3>
-                  <p className="text-cosmic-night/70 dark:text-cosmic-light/70">{service.description}</p>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
+        <Services />
 
         {/* Footer */}
         <footer className="py-12 px-4 bg-cosmic-night text-cosmic-light">
-          <div className="max-w-7xl mx-auto text-center">
-            <p>&copy; 2024 AI Vibe Co. All rights reserved.</p>
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+              <div>
+                <h3 className="font-bold font-display mb-4">Company</h3>
+                <ul className="space-y-2 text-sm opacity-70">
+                  <li><a href="#about" className="hover:text-cosmic-cyan transition">About</a></li>
+                  <li><a href="#blog" className="hover:text-cosmic-cyan transition">Blog</a></li>
+                  <li><a href="#careers" className="hover:text-cosmic-cyan transition">Careers</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-bold font-display mb-4">Services</h3>
+                <ul className="space-y-2 text-sm opacity-70">
+                  <li><a href="#services" className="hover:text-cosmic-cyan transition">Consulting</a></li>
+                  <li><a href="#services" className="hover:text-cosmic-cyan transition">Development</a></li>
+                  <li><a href="#services" className="hover:text-cosmic-cyan transition">Training</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-bold font-display mb-4">Legal</h3>
+                <ul className="space-y-2 text-sm opacity-70">
+                  <li><a href="#privacy" className="hover:text-cosmic-cyan transition">Privacy</a></li>
+                  <li><a href="#terms" className="hover:text-cosmic-cyan transition">Terms</a></li>
+                  <li><a href="#cookie" className="hover:text-cosmic-cyan transition">Cookies</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-bold font-display mb-4">Connect</h3>
+                <ul className="space-y-2 text-sm opacity-70">
+                  <li><a href="#twitter" className="hover:text-cosmic-cyan transition">Twitter</a></li>
+                  <li><a href="#linkedin" className="hover:text-cosmic-cyan transition">LinkedIn</a></li>
+                  <li><a href="#github" className="hover:text-cosmic-cyan transition">GitHub</a></li>
+                </ul>
+              </div>
+            </div>
+            <div className="border-t border-cosmic-cyan/20 pt-8">
+              <p className="text-center text-sm opacity-70">
+                &copy; 2024 AI Vibe Co. All rights reserved.
+              </p>
+            </div>
           </div>
         </footer>
       </main>
