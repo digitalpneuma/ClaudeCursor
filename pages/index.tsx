@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useState } from 'react';
-import { Button, Hero, Services } from '@/components';
+import { Button, Hero, Services, About, CaseStudies } from '@/components';
 
 interface HomeProps {
   isDark: boolean;
@@ -52,6 +52,12 @@ const Home: NextPage<HomeProps> = ({ isDark, toggleDarkMode }) => {
 
         {/* Services Section */}
         <Services />
+
+        {/* About Section */}
+        <About />
+
+        {/* Case Studies Section */}
+        <CaseStudies />
 
         {/* Footer */}
         <footer className="py-12 px-4 bg-cosmic-night text-cosmic-light">
