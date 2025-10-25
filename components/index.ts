@@ -6,3 +6,5 @@ export { Hero } from './Hero';
 export { Services } from './Services';
 export { About } from './About';
 export { CaseStudies } from './CaseStudies';
+export { Blog } from './Blog';
+export { ContactForm } from './ContactForm';
