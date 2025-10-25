@@ -1,0 +1,20 @@
+
+> claude-code-demo-day-1@1.0.0 dev
+> next dev
+
+ ⚠ Port 3000 is in use by process 10688, using available port 3001 instead.
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/miguelsimon/package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /Users/miguelsimon/Desktop/Claude Code Demo Day 1/package-lock.json
+
+   ▲ Next.js 16.0.0 (Turbopack)
+   - Local:        http://localhost:3001
+   - Network:      http://10.0.0.108:3001
+
+ ✓ Starting...
+ ⨯ Unable to acquire lock at /Users/miguelsimon/Desktop/Claude Code Demo Day 1/.next/dev/lock, is another instance of next dev running?
+   Suggestion: If you intended to restart next dev, terminate the other process, and then try again.
+[?25h

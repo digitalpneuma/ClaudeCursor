@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { Button, Card } from '@/components';
 
 interface HomeProps {
   isDark: boolean;
@@ -23,13 +24,14 @@ const Home: NextPage<HomeProps> = ({ isDark, toggleDarkMode }) => {
             <h1 className="text-2xl font-bold font-display bg-gradient-cosmic bg-clip-text text-transparent">
               AI Vibe Co.
             </h1>
-            <button
+            <Button
+              variant="secondary"
+              size="sm"
               onClick={toggleDarkMode}
-              className="px-4 py-2 rounded-lg bg-cosmic-violet text-white hover:bg-cosmic-cyan transition"
               aria-label="Toggle dark mode"
             >
               {isDark ? '☀️ Light' : '🌙 Dark'}
-            </button>
+            </Button>
           </nav>
         </header>
 
@@ -46,9 +48,9 @@ const Home: NextPage<HomeProps> = ({ isDark, toggleDarkMode }) => {
             <p className="text-xl md:text-2xl text-cosmic-night/70 dark:text-cosmic-light/70 mb-8 animate-slide-up">
               AI integration and app development consulting tailored for small and medium-sized businesses.
             </p>
-            <button className="px-8 py-4 bg-cosmic-success text-white font-bold text-lg rounded-lg glow-green hover:scale-105 transition transform">
+            <Button variant="success" size="lg">
               GET YOUR AI AUDIT
-            </button>
+            </Button>
           </div>
         </section>
 
@@ -74,14 +76,11 @@ const Home: NextPage<HomeProps> = ({ isDark, toggleDarkMode }) => {
                   icon: '🤖'
                 }
               ].map((service, idx) => (
-                <div
-                  key={idx}
-                  className="p-6 rounded-lg bg-white dark:bg-cosmic-night/50 border border-cosmic-cyan/20 hover:border-cosmic-cyan/50 hover:shadow-lg hover:glow-cyan transition cursor-pointer"
-                >
+                <Card key={idx} variant="bordered" className="hover:shadow-glow-cyan cursor-pointer">
                   <div className="text-4xl mb-4">{service.icon}</div>
                   <h3 className="text-xl font-bold font-display mb-3">{service.title}</h3>
                   <p className="text-cosmic-night/70 dark:text-cosmic-light/70">{service.description}</p>
-                </div>
+                </Card>
               ))}
             </div>
           </div>
